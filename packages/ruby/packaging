@@ -4,13 +4,17 @@ set -e
 tar xzf ruby/ruby-1.9.2-p180.tar.gz
 (
   cd ruby-1.9.2-p180
+  echo "Patching ruby-1.9.2-p180..."
+  pwd
+  find /var/vcap/data/ -name "*.patch"
+  patch -p1 < ../ruby/ossl_ssl.c.patch
+  echo "Building ruby-1.9.2-p180..."
   ./configure --prefix=${BOSH_INSTALL_TARGET} --disable-install-doc --with-opt-dir=/var/vcap/packages/libyaml
   make
   make install
 )
 
 tar zxvf ruby/rubygems-1.8.24.tgz
-
 (
   cd rubygems-1.8.24
 

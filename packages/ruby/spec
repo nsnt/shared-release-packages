@@ -6,3 +6,4 @@ files:
 - ruby/ruby-1.9.2-p180.tar.gz
 - ruby/rubygems-1.8.24.tgz
 - ruby/bundler-1.2.1.gem
+- ruby/ossl_ssl.c.patch
